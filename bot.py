@@ -7,9 +7,9 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                      level=logging.INFO)
 
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text='Привет, давай пообщаемся?')
+    bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
 def textMessage(bot, update):
-    response = 'Получил Ваше сообщение: ' + update.message.text
+    response = 'Я пока ни черта не умею)))00 Но вижу, что ты написал мне:' + update.message.text
     bot.send_message(chat_id=update.message.chat_id, text=response)
 
 start_handler = CommandHandler('start', start)
