@@ -1,3 +1,6 @@
+from os import environ
+def main():
+    application.listen(environ[80])
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 updater = Updater(token='700348901:AAGMYDZZmafglP6O9nAwn_yqpEfpzA8m_iw')
 dispatcher = updater.dispatcher
