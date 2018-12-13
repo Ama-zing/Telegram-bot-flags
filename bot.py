@@ -9,8 +9,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
 def textMessage(bot, update):
-    response = 'Я пока ни черта не умею)))00 Но вижу, что ты написал мне:' + update.message.text
-    bot.send_message(chat_id=update.message.chat_id, text=response)
+    if update.message.text == 'Russia':
+        response = 'Ну крч столица => Moscow'
+        bot.send_message(chat_id=update.message.chat_id, text=response)
+    else:
+        response = 'Напиши мне мб название своей страны на инглише ))0'
+        bot.send_message(chat_id=update.message.chat_id, text=response)
 
 start_handler = CommandHandler('start', start)
 text_message_handler = MessageHandler(Filters.text, textMessage)
