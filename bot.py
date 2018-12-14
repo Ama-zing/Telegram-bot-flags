@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters,
 updater = Updater(token='700348901:AAGMYDZZmafglP6O9nAwn_yqpEfpzA8m_iw')
 dispatcher = updater.dispatcher
 
@@ -19,8 +19,8 @@ def photo(bot, update):
     bot.sendPhoto(chat_id=update.message.chat_id, photo=picture)
 
 start_handler = CommandHandler('start', start)
+photo_handler = CommandHandler('Photo', photo)
 text_message_handler = MessageHandler(Filters.text, textMessage)
-photo_handler = PhotoHandler('Photo', photo)
 dispatcher.add_handler(photo_handler)
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(text_message_handler)
