@@ -1,20 +1,31 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import random
 updater = Updater(token='700348901:AAGMYDZZmafglP6O9nAwn_yqpEfpzA8m_iw')
 dispatcher = updater.dispatcher
 
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
-pic = 'https://countryflags.io/AD/shiny/64.png'
+pic = 'http://flags.fmcdn.net/data/flags/w580/ru.png'
+index=39
+Data_countries = {'1':'ru', '2':'se','3':'us','4':'tr'}
+random_num=random.randint(1,4)
+number_for_dict=str(random_num)
+pic2=Data_countries.get(number_for_dict)
+
+def change_flag(pic):
+    random_num = random.randint(1, 4)
+    number_for_dict = str(random_num)
+    pic2 = Data_countries.get(number_for_dict)
+    pic = pic[:index] + pic2+ pic[index + 2:]
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
 def textMessage(bot, update):
-    if update.message.text == 'Russia':
-        response = 'Ну крч столица => Moscow'
+    if update.message.text != '':
+        change_flag(pic)
+        response = 'Вот тебе флаг'
         bot.send_message(chat_id=update.message.chat_id, text=response)
-    else:
-        response = 'Напиши мне мб название своей страны на инглише ))0'
-        bot.send_message(chat_id=update.message.chat_id, text=response)
+        bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
 def photo(bot, update):
     bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
 
