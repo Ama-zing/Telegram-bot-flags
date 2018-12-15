@@ -5,7 +5,7 @@ dispatcher = updater.dispatcher
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
-pic = 'https://www.crossed-flag-pins.com/animated-flag-gif/images/Flag_Russia.jpg'
+pic = 'https://countryflags.io/AD/shiny/64.png'
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
 def textMessage(bot, update):
