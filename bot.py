@@ -6,11 +6,12 @@ dispatcher = updater.dispatcher
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
-global pic = 'http://flags.fmcdn.net/data/flags/w580/ru.png'
 index=39
 Data_countries = {'1':'ru', '2':'se','3':'us','4':'tr'}
 
 def change_flag():
+    global pic
+    pic = 'http://flags.fmcdn.net/data/flags/w580/ru.png'
     random_num = random.randint(1, 4)
     number_for_dict = str(random_num)
     pic2 = Data_countries.get(number_for_dict)
