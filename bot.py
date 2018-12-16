@@ -14,20 +14,32 @@ Data_name_countries ={'Россия':'ru','Швеция':'se','США':'us','Т�
 'Казахстан':'kz','Латвия':'lv','Литва':'lt','Мексика':'mx','Молдова':'md','Нидерланды':'nl','Новая Зеландия':'nz','Северная Корея':'kp','Норвегия':'no','Китай':'cn','Польша':'pl','Португалия':'pt','Румыния':'ro','Сербия':'rs','Словакия':'sk','Словения':'si','Южная Корея':'kr','Испания':'es','Швейцария':'ch','Украина':'ua',
 'Великобритания':'gb','Уругвай':'uy'}
 pic = 'http://flags.fmcdn.net/data/flags/w580/ru.png'
+pic2='ru'
 def change_flag():
     global pic
+    global pic2
     item = Data_countries.popitem()
     pic2 = item[1]
     pic = pic[:index] + pic2 + pic[index + 2:]
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
+    global active_game
+    active_game=1
+    bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Сейчас я пришлю тебе фото флага. Твоя задача - написать в ответ название этой страны на русском языке. Игра началась :)')
+    bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
 def textMessage(bot, update):
-    if update.message.text != '':
-        answer=update.message.text
-        change_flag()
-        response = 'Вот тебе флаг'
-        bot.send_message(chat_id=update.message.chat_id, text=response)
-        bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
+    if active_game==1:
+        if update.message.text != '':
+            answer=update.message.text
+            if Data_name_countries.get(answer)==pic2:
+                bot.send_message(chat_id=update.message.chat_id, text='Молодец. Абсолютно верно !')
+            else:
+                bot.send_message(chat_id=update.message.chat_id, text='А вот и неправильно !')
+            change_flag()
+            response = 'Вот тебе следующий флаг, что это за страна ?'
+            bot.send_message(chat_id=update.message.chat_id, text=response)
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
+    else:
+        bot.send_message(chat_id=update.message.chat_id, text='Для начала игры напиши /start')
 def photo(bot, update):
     bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
 
