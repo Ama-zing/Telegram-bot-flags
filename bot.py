@@ -1,5 +1,4 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import random
 updater = Updater(token='700348901:AAGMYDZZmafglP6O9nAwn_yqpEfpzA8m_iw')
 dispatcher = updater.dispatcher
 
@@ -13,13 +12,12 @@ Data_countries = {'1':'ru', '2':'se','3':'us','4':'tr','5':'dz','6':'ad','7':'ar
 Data_name_countries ={'Россия':'ru','Швеция':'se','США':'us','Турция':'tr','Алжир':'dz','Аргентина':'ar','Армения':'am','Австралия':'au','Австрия':'az','Бельгия':'be','Бразилия':'br','Болгария':'bg','Канада':'ca','Чили':'cl','Колумбия':'co','Хорватия':'hr','Куба':'cu','Чехия':'cz','Дания':'dk',
 'Египет':'eg','Эстония':'ee','Финляндия':'fi','Франция':'fr','Грузия':'ge','Германия':'de','Греция':'gr','Венгрия':'hu','Исландия':'is','Индия':'in','Иран':'ir','Ирак':'iq','Ирландия':'ie','Израиль':'il','Италия':'it','Ямайка':'jm','Япония':'jp','Иордан':'jo',
 'Казахстан':'kz','Латвия':'lv','Литва':'lt','Мексика':'mx','Молдова':'md','Нидерланды':'nl','Новая Зеландия':'nz','Северная Корея':'kp','Норвегия':'no','Китай':'cn','Польша':'pl','Португалия':'pt','Румыния':'ro','Сербия':'rs','Словакия':'sk','Словения':'si','Южная Корея':'kr','Испания':'es','Швейцария':'ch','Украина':'ua',
-'Великобритания':'gb','Уругвай':'uy',}
+'Великобритания':'gb','Уругвай':'uy'}
 pic = 'http://flags.fmcdn.net/data/flags/w580/ru.png'
 def change_flag():
     global pic
-    random_num = random.randint(1, 62)
-    number_for_dict = str(random_num)
-    pic2 = Data_countries.get(number_for_dict)
+    item = Data_countries.popitem()
+    pic2 = item[1]
     pic = pic[:index] + pic2 + pic[index + 2:]
 def start(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
