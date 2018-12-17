@@ -43,22 +43,13 @@ def change_flag():
 
 
 def start(bot, update):
-    bot.send_message(chat_id=update.message.chat_id,
-                     text='Привет, я - Country_by_flag_bot_436. Скоро будем отгадывать страны по флагу...надеюсь :)')
     global active_game
     active_game = 1
-    bot.send_message(chat_id=update.message.chat_id,
-                     text='Привет, я - Country_by_flag_bot_436. Сейчас я пришлю тебе фото флага. Твоя задача - написать в ответ название этой страны на русском языке. Игра началась :)')
+    bot.send_message(chat_id=update.message.chat_id, text='Привет, я - Country_by_flag_bot_436. Сейчас я пришлю тебе фото флага. Твоя задача - написать в ответ название этой страны на русском языке. Игра началась :)')
     bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
 
 
 def textMessage(bot, update):
-    if update.message.text != '':
-        answer = update.message.text
-        change_flag()
-        response = 'Вот тебе флаг'
-        bot.send_message(chat_id=update.message.chat_id, text=response)
-        bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
     if active_game == 1:
         if update.message.text != '':
             answer = update.message.text
