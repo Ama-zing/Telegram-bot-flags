@@ -40,7 +40,7 @@ def textMessage(bot, update):
             bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
     else:
         bot.send_message(chat_id=update.message.chat_id, text='Для начала игры напиши /start')
-def restart(bot, update):
+
 
 start_handler = CommandHandler('start', start)
 restart_handler = CommandHandler('restart', photo)
