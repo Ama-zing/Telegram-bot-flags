@@ -23,12 +23,13 @@ Data_name_countries = {'Россия': 'ru', 'Швеция': 'se', 'США': 'us
                        'Германия': 'de', 'Греция': 'gr', 'Венгрия': 'hu', 'Исландия': 'is', 'Индия': 'in', 'Иран': 'ir',
                        'Ирак': 'iq', 'Ирландия': 'ie', 'Израиль': 'il', 'Италия': 'it', 'Ямайка': 'jm', 'Япония': 'jp',
                        'Иордан': 'jo',
-                       'Казахстан': 'kz', 'Латвия': 'lv', 'Литва': 'lt', 'Мексика': 'mx', 'Молдова': 'md',
+                       'Казахстан': 'kz', 'Латвия': 'lv', 'Литва': 'lt', 'Мексика': 'mx', 'Молдавия': 'md',
                        'Нидерланды': 'nl', 'Новая Зеландия': 'nz', 'Северная Корея': 'kp', 'Норвегия': 'no',
                        'Китай': 'cn', 'Польша': 'pl', 'Португалия': 'pt', 'Румыния': 'ro', 'Сербия': 'rs',
                        'Словакия': 'sk', 'Словения': 'si', 'Южная Корея': 'kr', 'Испания': 'es', 'Швейцария': 'ch',
                        'Украина': 'ua',
                        'Великобритания': 'gb', 'Уругвай': 'uy'}
+Data_name_countries_reversed=dict(map(reversed, Data_name_countries.items()))
 pic = 'http://flags.fmcdn.net/data/flags/w580/ru.png'
 pic2 = 'ru'
 
@@ -55,7 +56,9 @@ def textMessage(bot, update):
             if Data_name_countries.get(answer) == pic2:
                 bot.send_message(chat_id=update.message.chat_id, text='Молодец. Абсолютно верно !')
             else:
+                Right_answer=Data_name_countries_reversed.get(pic2)
                 bot.send_message(chat_id=update.message.chat_id, text='А вот и неправильно !')
+                bot.send_message(chat_id=update.message.chat_id,text='Правильный ответ ' +Right_answer)
             change_flag()
             response = 'Вот тебе следующий флаг, что это за страна ?'
             bot.send_message(chat_id=update.message.chat_id, text=response)
