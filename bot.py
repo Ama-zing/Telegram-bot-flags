@@ -43,7 +43,6 @@ def textMessage(bot, update):
 
 
 start_handler = CommandHandler('start', start)
-restart_handler = CommandHandler('restart', photo)
 text_message_handler = CommandHandler(Filters.text, textMessage)
 dispatcher.add_handler(restart_handler_handler)
 dispatcher.add_handler(start_handler)
