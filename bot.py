@@ -58,7 +58,7 @@ def textMessage(bot, update):
             else:
                 Right_answer=Data_name_countries_reversed.get(pic2)
                 bot.send_message(chat_id=update.message.chat_id, text='А вот и неправильно !')
-                bot.send_message(chat_id=update.message.chat_id,text='Правильный ответ ' +Right_answer)
+                bot.send_message(chat_id=update.message.chat_id,text='Правильный ответ:' +Right_answer)
             change_flag()
             response = 'Вот тебе следующий флаг, что это за страна ?'
             bot.send_message(chat_id=update.message.chat_id, text=response)
