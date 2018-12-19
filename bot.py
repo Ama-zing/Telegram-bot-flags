@@ -72,9 +72,17 @@ def textMessage(bot, update):
         bot.send_message(chat_id=update.message.chat_id, text='Для начала игры напиши /start')
 
 
+def restart(bot, update):
+    used_numbers.clear()
+    bot.send_message(chat_id=update.message.chat_id, text='Игра начата по-новой')
+    bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
+
+
 start_handler = CommandHandler('start', start)
+restart_handler=CommandHandler('restart', restart)
 text_message_handler = MessageHandler(Filters.text, textMessage)
 dispatcher.add_handler(start_handler)
+dispatcher.add_handler(restart_handler_handler)
 dispatcher.add_handler(text_message_handler)
 updater.start_polling(clean=True)
 updater.idle()
