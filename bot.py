@@ -8,6 +8,7 @@ import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 index = 39
+random_num='1'
 Data_name_countries = {'Россия': 'ru', 'Швеция': 'se', 'США': 'us', 'Турция': 'tr', 'Алжир': 'dz','Азербайджан':'az', 'Аргентина': 'ar',
                        'Армения': 'am', 'Австралия': 'au', 'Австрия': 'at','Беларусь':'by', 'Бельгия': 'be', 'Бразилия': 'br',
                        'Болгария': 'bg', 'Канада': 'ca', 'Чили': 'cl', 'Колумбия': 'co', 'Хорватия': 'hr', 'Куба': 'cu',
@@ -27,6 +28,7 @@ pic2 = 'ru'
 def change_flag():
     global pic
     global pic2
+    global random_num
     while random_num in used_numbers:
         random_num=(random.choice(list(Data_countries.keys())))
     used_numbers.add(random_num)
@@ -35,8 +37,6 @@ def change_flag():
 
 
 def start(bot, update):
-    global random_num
-    random_num='1'
     global used_numbers
     used_numbers=set()
     global active_game
