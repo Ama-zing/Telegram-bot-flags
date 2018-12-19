@@ -27,12 +27,18 @@ pic2 = 'ru'
 def change_flag():
     global pic
     global pic2
-    random_num=(random.choice(list(Data_countries.keys())))
+    while random_num in used_numbers:
+        random_num=(random.choice(list(Data_countries.keys())))
+    used_numbers.add(random_num)
     pic2 = Data_countries.get(random_num)
     pic = pic[:index] + pic2 + pic[index + 2:]
 
 
 def start(bot, update):
+    global random_num
+    random_num='1'
+    global used_numbers
+    used_numbers=set()
     global active_game
     global Data_countries
     Data_countries = {'1': 'ru', '2': 'se', '3': 'us', '4': 'tr', '5': 'dz', '6': 'az', '7': 'ar', '8': 'am', '9': 'au',
