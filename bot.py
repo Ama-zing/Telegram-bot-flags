@@ -1,3 +1,4 @@
+import random
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 updater = Updater(token='700348901:AAGMYDZZmafglP6O9nAwn_yqpEfpzA8m_iw')
@@ -35,8 +36,7 @@ def change_flag():
     global pic
     global pic2
     random_num=(random.choice(list(Data_countries.keys())))
-    number_for_dict = str(random_num)
-    pic2 = Data_countries.get(number_for_dict)
+    pic2 = Data_countries.get(random_num)
     pic = pic[:index] + pic2 + pic[index + 2:]
 
 
