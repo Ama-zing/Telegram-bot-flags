@@ -10,7 +10,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 index = 39
 random_num='1'
 Data_name_countries = {'Россия': 'ru', 'Швеция': 'se', 'США': 'us', 'Турция': 'tr', 'Алжир': 'dz','Азербайджан':'az', 'Аргентина': 'ar',
-                       'Армения': 'am', 'Австралия': 'au', 'Австрия': 'at','Беларусь':'by', 'Бельгия': 'be', 'Бразилия': 'br',
+                       'Армения': 'am', 'Австралия': 'au', 'Австрия': 'at','Белоруссия':'by', 'Бельгия': 'be', 'Бразилия': 'br',
                        'Болгария': 'bg', 'Канада': 'ca', 'Чили': 'cl', 'Колумбия': 'co', 'Хорватия': 'hr', 'Куба': 'cu',
                        'Чехия': 'cz', 'Дания': 'dk', 'Египет': 'eg', 'Эстония': 'ee', 'Финляндия': 'fi', 'Франция': 'fr', 'Грузия': 'ge',
                        'Германия': 'de', 'Греция': 'gr', 'Венгрия': 'hu', 'Исландия': 'is', 'Индия': 'in', 'Иран': 'ir',
@@ -38,7 +38,7 @@ def change_flag():
 
 def start(bot, update):
     global used_numbers
-    used_numbers=set()
+    used_numbers=set('1')
     global active_game
     global Data_countries
     Data_countries = {'1': 'ru', '2': 'se', '3': 'us', '4': 'tr', '5': 'dz', '6': 'az', '7': 'ar', '8': 'am', '9': 'au',
