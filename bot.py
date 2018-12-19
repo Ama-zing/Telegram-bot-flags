@@ -74,6 +74,7 @@ def textMessage(bot, update):
 
 def restart(bot, update):
     used_numbers.clear()
+    used_numbers.add(random_num)
     bot.send_message(chat_id=update.message.chat_id, text='Игра начата по-новой')
     bot.sendPhoto(chat_id=update.message.chat_id, photo=pic)
 
